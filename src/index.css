@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom dropdown styling */
+select option {
+  background-color: #1f2937 !important;
+  color: white !important;
+}
+
+select option:hover {
+  background-color: #374151 !important;
+}
+
+select option:checked {
+  background-color: #059669 !important;
+}
+
+/* Additional styling for better dropdown appearance */
+select {
+  background-image: none !important;
+}
+
+select:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #10b981;
+}
