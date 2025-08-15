@@ -3,7 +3,6 @@ import { Upload, Search, Video, Sparkles, Loader2, Brain } from "lucide-react";
 import VideoUpload from "./components/VideoUpload";
 import VideoGrid from "./components/VideoGrid";
 import SearchBar from "./components/SearchBar";
-import StoryGenerator from "./components/StoryGenerator";
 import StoryList from "./components/StoryList";
 import MemoryEngine from "./components/MemoryEngine";
 import EnhancedStoryGenerator from "./components/EnhancedStoryGenerator";

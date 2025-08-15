@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Brain, Search, TrendingUp, Users, MapPin, Calendar, Heart } from 'lucide-react';
-// import {API_BASE_URL} from "../constants/config";
 interface MemoryInsights {
   total_memories: number;
   time_period: {
