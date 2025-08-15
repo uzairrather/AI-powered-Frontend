@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Brain, Search, TrendingUp, Users, MapPin, Calendar, Heart } from 'lucide-react';
-
+// import {API_BASE_URL} from "../constants/config";
 interface MemoryInsights {
   total_memories: number;
   time_period: {
@@ -52,9 +52,9 @@ export default function MemoryEngine() {
     fetchNostalgicSuggestions();
   }, []);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
   const fetchMemoryInsights = async () => {
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
     const response = await fetch(`${API_URL}/api/videos/memories/insights`, {
         credentials: 'include',
       });
