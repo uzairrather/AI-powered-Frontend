@@ -117,7 +117,7 @@ const cleanNarrative = (text: string) => {
                         : `${API_URL}/api/videos/${story.clips[0]._id}/stream`
                     }
                   >
-                    Your browser does not support the video tag.
+                    Your browser does not support the video tags
                   </video>
                 ) : (
                   <div className="w-full rounded-lg border border-yellow-600/40 bg-yellow-500/10 p-4 text-yellow-200">
