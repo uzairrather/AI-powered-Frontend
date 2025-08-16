@@ -38,6 +38,7 @@ export default function EnhancedStoryGenerator({ selectedVideos, onStoryGenerate
   const [generating, setGenerating] = useState(false);
   const [activeTab, setActiveTab] = useState<'prompts' | 'custom' | 'quick'>('prompts');
   
+  
   const [options, setOptions] = useState<StoryGenerationOptions>({
     storyType: 'inspirational',
     theme: 'inspirational',
@@ -48,6 +49,7 @@ export default function EnhancedStoryGenerator({ selectedVideos, onStoryGenerate
     userPrompt: '',
     clipDuration: 30
   });
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"; 
 
   useEffect(() => {
     if (selectedVideos.length > 0) {
@@ -57,7 +59,7 @@ export default function EnhancedStoryGenerator({ selectedVideos, onStoryGenerate
 
   const fetchStoryPrompts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/stories/prompts', {
+      const response = await fetch(`${API_URL}/api/stories/prompts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -118,8 +120,7 @@ export default function EnhancedStoryGenerator({ selectedVideos, onStoryGenerate
         emotionalJourney: options.emotionalJourney,
         contrastType: options.contrastType
       };
-
-      const response = await fetch(`http://localhost:5000/api/stories${endpoint}`, {
+      const response = await fetch(`${API_URL}/api/stories${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
