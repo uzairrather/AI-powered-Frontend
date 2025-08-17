@@ -23,7 +23,16 @@ interface StoryListProps {
 
 const StoryList: React.FC<StoryListProps> = ({ stories }) => {
   const [openVideoId, setOpenVideoId] = React.useState<string | null>(null);
-  const API_URL = (import.meta as any)?.env?.VITE_API_URL || 'http://localhost:5000';
+ const API_URL = (() => {
+  const fromEnv = import.meta.env?.VITE_API_URL?.replace(/\/$/, '');
+  if (fromEnv) return fromEnv;
+
+  const isLocal =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
+  return isLocal ? 'http://localhost:5000' : window.location.origin;
+})();
+
 
   const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString("en-US", {
